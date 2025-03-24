@@ -48,10 +48,7 @@ button_motivation = types.InlineKeyboardButton(
 button_axo = types.InlineKeyboardButton(
     text = 'AXO', callback_data = 'axo')
 
-button_back = types.InlineKeyboardButton(
-    text = 'AXO', callback_data = 'back')
-
-tutor_kb.add(button_link_about_company, button_inst_reg, button_map_courses, button_what_where_why, button_partners, button_motivation, button_axo, button_back)
+tutor_kb.add(button_link_about_company, button_inst_reg, button_map_courses, button_what_where_why, button_partners, button_motivation, button_axo)
 
 
 #Инструкции и регламенты (куратор)
@@ -233,16 +230,11 @@ teacher_kb = types.InlineKeyboardMarkup(
     row_width = 1
 )
 
-
-button_t_partners = types.InlineKeyboardButton(
-    text = 'Партнеры', callback_data = 'partnerst')
-
-
 button_working_method = types.InlineKeyboardButton(
     'Метод работы', url='https://robotmovavi.ru/')
 
 
-teacher_kb.add(button_link_about_company, button_what_where_why, button_map_courses, button_t_partners, button_motivation, button_working_method)
+teacher_kb.add(button_link_about_company, button_what_where_why, button_map_courses, button_partners, button_motivation, button_working_method)
 
 
 

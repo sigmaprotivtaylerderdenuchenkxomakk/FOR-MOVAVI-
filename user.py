@@ -11,7 +11,7 @@ class User():
         engine = create_engine("sqlite:///" + db_name)
         Session = sessionmaker(bind=engine)
         session = Session()
-        user = session.query(Users).filter_by(user_id=id).first()
+        user = session.query(Users).filter_by(user_id=id).first().rol
         session.close()
         return user
     

@@ -11,7 +11,4 @@ class Users(BaseModel):
     user_id = Column(Integer)  # Строка длиной 100 символов
     rol = Column(String(100))  # Число
 
-# Настраиваем подключение к БД (файл указывается при запуске)
-engine = create_engine("sqlite:///" + input("Файл БД: "))
-# Создание таблиц (если они еще не созданы)
-BaseModel.metadata.create_all(engine)
+# Настраиваем подключение к БД (файл указывается при запуске
