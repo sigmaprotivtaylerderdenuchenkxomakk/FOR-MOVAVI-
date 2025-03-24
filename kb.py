@@ -93,6 +93,7 @@ button_create_contract = telebot.types.InlineKeyboardButton(
 
 button_pay = telebot.types.InlineKeyboardButton(
     'Как провести оплату', url='https://robotmovavi.ru/')
+tutor_kb_cpm.add(button_create_contract, button_pay)
 
 
 
@@ -241,7 +242,7 @@ button_working_method = types.InlineKeyboardButton(
     'Метод работы', url='https://robotmovavi.ru/')
 
 
-tutor_kb.add(button_link_about_company, button_what_where_why, button_map_courses, button_t_partners, button_motivation, button_working_method)
+teacher_kb.add(button_link_about_company, button_what_where_why, button_map_courses, button_t_partners, button_motivation, button_working_method)
 
 
 
