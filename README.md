@@ -13,10 +13,10 @@
 
 
 
-
-
-
-
-
 Примеры работы:
+
+
+
+
+
 ![image](https://github.com/user-attachments/assets/c5caf947-0f90-46a8-ad03-785f9c5f4764)
