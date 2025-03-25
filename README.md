@@ -2,5 +2,21 @@
 Инструкцию для работы бота:
 1. Запускаем файл по имени db_create.py
 2. Запускаем файл по имени main.py
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Примеры работы:
 ![image](https://github.com/user-attachments/assets/c5caf947-0f90-46a8-ad03-785f9c5f4764)
