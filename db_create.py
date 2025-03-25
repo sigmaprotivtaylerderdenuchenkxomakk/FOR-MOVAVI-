@@ -3,6 +3,7 @@ from sqlalchemy import create_engine, Column, Integer, String
 
 BaseModel = declarative_base()
 
+
 class Users(BaseModel):
     __tablename__ = 'user'  # Название таблицы
 
@@ -11,4 +12,8 @@ class Users(BaseModel):
     user_id = Column(Integer)  # Строка длиной 100 символов
     rol = Column(String(100))  # Число
 
+
 # Настраиваем подключение к БД (файл указывается при запуске
+engine = create_engine("sqlite:///" + 'mov.db')
+# Создание таблиц (если они еще не созданы)
+BaseModel.metadata.create_all(engine)

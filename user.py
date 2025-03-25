@@ -2,10 +2,13 @@ from config import *
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import create_engine, Column, Integer, String
 from db_create import *
+
+
 class User():
     def __init__(self, user_id, rol):
         self.user_id = user_id
         self.rol = rol
+
     @staticmethod
     def get_user_by_id(id):
         engine = create_engine("sqlite:///" + db_name)
@@ -18,15 +21,13 @@ class User():
             user = 'Пользователь не найден'
         session.close()
         return user
-    
+
     @staticmethod
-    def save_user(id,rol):
+    def save_user(id, rol):
         engine = create_engine("sqlite:///" + db_name)
         Session = sessionmaker(bind=engine)
         session = Session()
-        new_user = Users(user_id = id, rol = rol)
+        new_user = Users(user_id=id, rol=rol)
         session.add(new_user)
         session.commit()
         session.close()
-    
-
