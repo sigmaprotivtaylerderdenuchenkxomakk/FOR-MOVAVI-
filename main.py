@@ -38,7 +38,7 @@ def handle_callback(callback):
                               chat_id=callback.message.chat.id, message_id=callback.message.id)
         bot.edit_message_reply_markup(
             reply_markup=tutor_kb, chat_id=callback.message.chat.id, message_id=callback.message.id)
-    elif callback.data == 'tutor' and user == 'teacher':
+    elif callback.data == ' tutor' and user == 'teacher':
         bot.edit_message_text(text='Выбирите что хотите узнать',
                               chat_id=callback.message.chat.id, message_id=callback.message.id)
         bot.edit_message_reply_markup(
@@ -54,7 +54,7 @@ def handle_callback(callback):
         bot.edit_message_reply_markup(
             reply_markup=tutor_kb, chat_id=callback.message.chat.id, message_id=callback.message.id)
     elif callback.data == 'axo':
-        bot.edit_message_text(text='Если вас интерисуют организиционые хозяйственные вопросы',
+        bot.edit_message_text(text='Если вас интересуют организиционые хозяйственные вопросы',
                               chat_id=callback.message.chat.id, message_id=callback.message.id)
         bot.edit_message_reply_markup(
             reply_markup=tutor_kb_axo, chat_id=callback.message.chat.id, message_id=callback.message.id)
