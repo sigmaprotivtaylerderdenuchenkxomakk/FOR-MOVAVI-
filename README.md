@@ -29,7 +29,8 @@
 
 
 
-![image](https://github.com/user-attachments/assets/ea041c8d-9eea-4ca0-886e-222c00781839)
+![image](https://github.com/user-attachments/assets/b383aa6c-bae5-47c7-bdc0-70cc71855c7d)
+
 
 
 Кнопки "О компании" и "Структура Кто? Где? Когда?" перебрасывают нас по ссылке
@@ -39,13 +40,15 @@
 Разберем кнопку "Инструменыты и регламенты" и нажмем на нее
 
 
-![alt text](image-2.png)
+![image](https://github.com/user-attachments/assets/9081a5c3-602f-4172-ac66-6169ea602594)
+
 
 
 Кнопки "Документоборот" , "Касса" , "Пожарная эвакуация" , "Работа с контрагентами" , "Первая помощь" перебрасывают нас по ссылке, кнопка "CPM" ведёт нас дальше "по маршруту"
 
 
-![alt text](image-3.png)
+![image](https://github.com/user-attachments/assets/cbd6493c-c29b-498a-b3b4-617877f42f49)
+
 
 
 Кнопки "Как создать договор" и "Как провести оплату" перебрасывают нас по ссылке
