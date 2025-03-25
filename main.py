@@ -1,7 +1,7 @@
 from telebot import *
 from user import *
 from kb import *
-TOKEN = "7945274007:AAG2M3Fx6JGFFrvs73Pied_mfiQiU3Fp_3I"
+from config import *
 
 
 
@@ -14,48 +14,60 @@ bot = TeleBot(TOKEN)
 @bot.message_handler(commands=['start'])
 def handle_start(message):
         bot.send_message(message.chat.id,('Здравствуйте, вас приветствует чат-бот для онбординга новых сотрудников в школу Movavi' ))
+
         bot.send_message(message.chat.id,'Пожалуйста, выберите свою роль', reply_markup = main_kb)
         
 @bot.callback_query_handler(func=lambda callback: True)
 def handle_callback(callback):
     if callback.data == 'teacher':
-        User.save_user(callback.message.from_user.id,callback.data)
-        bot.delete_message(callback.message.chat.id, callback.message.message_id)
-        bot.send_message(callback.message.chat.id,'Выбирите что хотите узнать', reply_markup = tutor_kb)
+        user:str =User.get_user_by_id(callback.message.chat.id)
+        if user=='Пользователь не найден':
+            User.save_user(callback.message.from_user.id,callback.data)
+        bot.edit_message_text(text = 'Выбирите что хотите узнать',chat_id= callback.message.chat.id,message_id=callback.message.id)
+        bot.edit_message_reply_markup(reply_markup=teacher_kb ,chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == 'tutor':
         User.save_user(callback.message.from_user.id,callback.data)
-        bot.delete_message(callback.message.chat.id, callback.message.message_id)
-        bot.send_message(callback.message.chat.id,'Выбирите что хотите узнать', reply_markup = teacher_kb)
+        bot.edit_message_text(text = 'Выбирите что хотите узнать',chat_id= callback.message.chat.id,message_id=callback.message.id)
+        bot.edit_message_reply_markup(reply_markup=tutor_kb ,chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == 'axo':
-        bot.send_message(callback.message.chat.id, 'Если вас интерисуют организиционые хозяйственные вопросы', reply_markup = tutor_kb_axo)
+        bot.edit_message_text(text = 'Если вас интерисуют организиционые хозяйственные вопросы',chat_id= callback.message.chat.id,message_id=callback.message.id)
+        bot.edit_message_reply_markup(reply_markup=tutor_kb_axo ,chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == 'motivation':
-        bot.send_message(callback.message.chat.id, 'Про мотивыцию', reply_markup = tutor_kb_motivation)
+        bot.edit_message_text(text = 'Если вас интерисуют организиционые хозяйственные вопросы',chat_id= callback.message.chat.id,message_id=callback.message.id)
+        bot.edit_message_reply_markup(reply_markup=tutor_kb_axo ,chat_id= callback.message.chat.id,message_id=callback.message.id)
+        bot.send_message(callback.message.chat.id, 'Про мотивацию', reply_markup = tutor_kb_motivation)
     elif callback.data == 'inst_reg':
-        bot.send_message(callback.message.chat.id, 'Инструкции и регламенты', reply_markup = tutor_kb_inst_reg)
+        bot.edit_message_text(text = 'Инструкции и регламенты',chat_id= callback.message.chat.id,message_id=callback.message.id)
+        bot.edit_message_reply_markup(reply_markup=tutor_kb_inst_reg ,chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == 'cpm':
-        bot.send_message(callback.message.chat.id, 'CPM', reply_markup = tutor_kb_cpm)
+        bot.edit_message_text(text = 'CPM',chat_id= callback.message.chat.id,message_id=callback.message.id)
+        bot.edit_message_reply_markup(reply_markup=tutor_kb_cpm ,chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == 'mapcourses':
-        bot.send_message(callback.message.chat.id, 'Карта курсов', reply_markup = tutor_kb_map_courses)
+        bot.edit_message_text(text = 'Карта курсов',chat_id= callback.message.chat.id,message_id=callback.message.id)
+        bot.edit_message_reply_markup(reply_markup=tutor_kb_map_courses ,chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == 'partners':
-        bot.send_message(callback.message.chat.id, 'Партнеры', reply_markup = tutor_kb_partners)
+        bot.edit_message_text(text = 'Партнеры',chat_id= callback.message.chat.id,message_id=callback.message.id)
+        bot.edit_message_reply_markup(reply_markup=tutor_kb_partners ,chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == 'growth':
-        rol = User.get_user_by_id(callback.message.from_user.id)
+        bot.edit_message_text(text = 'Наши стратегии развития',chat_id= callback.message.chat.id,message_id=callback.message.id)
+        rol:str = User.get_user_by_id(callback.message.from_user.id)
         if rol=="tutor":
-             bot.send_message(callback.message.chat.id, 'Наши стратегии развития', reply_markup = tutor_kb_growth)
+             bot.edit_message_reply_markup(reply_markup=tutor_kb_growth ,chat_id= callback.message.chat.id,message_id=callback.message.id)
         else:
-             bot.send_message(callback.message.chat.id, 'Наши стратегии развития', reply_markup = teacher_kb_growth)
+             bot.edit_message_reply_markup(reply_markup=teacher_kb_growth ,chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == 'proschool':
-        rol = User.get_user_by_id(callback.message.from_user.id)
+        rol:str = User.get_user_by_id(callback.message.from_user.id)
         if rol=="tutor":
-             bot.send_message(callback.message.chat.id, 'Проскул', reply_markup = tutor_kb_pro_school)
+             bot.edit_message_reply_markup(reply_markup=tutor_kb_pro_school ,chat_id= callback.message.chat.id,message_id=callback.message.id)
         else:
-             bot.send_message(callback.message.chat.id, 'Проскул', reply_markup = teacher_kb_pro_school)
+             bot.edit_message_reply_markup(reply_markup=teacher_kb_pro_school ,chat_id= callback.message.chat.id,message_id=callback.message.id)
+        bot.edit_message_text(text = 'Проскул',chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == '10gym':
-        rol = User.get_user_by_id(callback.message.from_user.id)
+        rol:str = User.get_user_by_id(callback.message.from_user.id)
         if rol=="tutor":
-                bot.send_message(callback.message.chat.id, '10-ая гимназия', reply_markup = tutor_kb_10th_gymnasium)
+            bot.edit_message_reply_markup(reply_markup=tutor_kb_10th_gymnasium ,chat_id= callback.message.chat.id,message_id=callback.message.id)
         else:
-             bot.send_message(callback.message.chat.id, '10-ая гимназия', reply_markup = teacher_kb_10th_gymnasium)
-
+            bot.edit_message_reply_markup(reply_markup=teacher_kb_10th_gymnasium ,chat_id= callback.message.chat.id,message_id=callback.message.id)
+        bot.edit_message_text(text = '10-ая гимназия',chat_id= callback.message.chat.id,message_id=callback.message.id)
 bot.polling(non_stop=True, interval=1)  
 

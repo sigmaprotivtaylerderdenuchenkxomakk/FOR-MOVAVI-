@@ -1,3 +1,3 @@
-TOKEN = "7945274007:AAG2M3Fx6JGFFrvs73Pied_mfiQiU3Fp_3I"
+TOKEN:str = "7945274007:AAG2M3Fx6JGFFrvs73Pied_mfiQiU3Fp_3I"
 ADMINS = [1770912874,1869257970]
-db_name = "mov.db"
+db_name:str = "mov.db"

@@ -11,7 +11,11 @@ class User():
         engine = create_engine("sqlite:///" + db_name)
         Session = sessionmaker(bind=engine)
         session = Session()
-        user = session.query(Users).filter_by(user_id=id).first().rol
+        user: str
+        try:
+            user = session.query(Users).filter_by(user_id=id).first().rol
+        except:
+            user = 'Пользователь не найден'
         session.close()
         return user
     
