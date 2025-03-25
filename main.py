@@ -20,13 +20,15 @@ def handle_start(message):
 @bot.callback_query_handler(func=lambda callback: True)
 def handle_callback(callback):
     if callback.data == 'teacher':
-        user:str =User.get_user_by_id(callback.message.chat.id)
+        user:str =User.get_user_by_id(callback.message.from_user.id)
         if user=='Пользователь не найден':
             User.save_user(callback.message.from_user.id,callback.data)
         bot.edit_message_text(text = 'Выбирите что хотите узнать',chat_id= callback.message.chat.id,message_id=callback.message.id)
         bot.edit_message_reply_markup(reply_markup=teacher_kb ,chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == 'tutor':
-        User.save_user(callback.message.from_user.id,callback.data)
+        user:str =User.get_user_by_id(callback.message.from_user.id)
+        if user=='Пользователь не найден':
+            User.save_user(callback.message.from_user.id,callback.data)
         bot.edit_message_text(text = 'Выбирите что хотите узнать',chat_id= callback.message.chat.id,message_id=callback.message.id)
         bot.edit_message_reply_markup(reply_markup=tutor_kb ,chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == 'axo':
@@ -57,17 +59,18 @@ def handle_callback(callback):
              bot.edit_message_reply_markup(reply_markup=teacher_kb_growth ,chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == 'proschool':
         rol:str = User.get_user_by_id(callback.message.from_user.id)
+        bot.edit_message_text(text = 'Проскул',chat_id= callback.message.chat.id,message_id=callback.message.id)
         if rol=="tutor":
              bot.edit_message_reply_markup(reply_markup=tutor_kb_pro_school ,chat_id= callback.message.chat.id,message_id=callback.message.id)
         else:
              bot.edit_message_reply_markup(reply_markup=teacher_kb_pro_school ,chat_id= callback.message.chat.id,message_id=callback.message.id)
-        bot.edit_message_text(text = 'Проскул',chat_id= callback.message.chat.id,message_id=callback.message.id)
     elif callback.data == '10gym':
         rol:str = User.get_user_by_id(callback.message.from_user.id)
+        
+        bot.edit_message_text(text = '10-ая гимназия',chat_id= callback.message.chat.id,message_id=callback.message.id)
         if rol=="tutor":
             bot.edit_message_reply_markup(reply_markup=tutor_kb_10th_gymnasium ,chat_id= callback.message.chat.id,message_id=callback.message.id)
         else:
             bot.edit_message_reply_markup(reply_markup=teacher_kb_10th_gymnasium ,chat_id= callback.message.chat.id,message_id=callback.message.id)
-        bot.edit_message_text(text = '10-ая гимназия',chat_id= callback.message.chat.id,message_id=callback.message.id)
 bot.polling(non_stop=True, interval=1)  
 
