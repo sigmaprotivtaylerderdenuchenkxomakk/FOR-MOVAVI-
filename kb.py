@@ -75,7 +75,7 @@ button_link_first_aid = telebot.types.InlineKeyboardButton(
 button_cpm = telebot.types.InlineKeyboardButton(
     text='CPM', callback_data='cpm')
 button_back = telebot.types.InlineKeyboardButton(
-    text='Назад', callback_data='tutor')
+    text='Назад в главное меню', callback_data='tutor')
 
 tutor_kb_inst_reg.add(button_link_documentory, button_link_cash_desk, button_link_fire_evacuation,
                       button_link_counterparties, button_link_first_aid, button_cpm, button_back)
@@ -93,7 +93,7 @@ button_create_contract = telebot.types.InlineKeyboardButton(
 button_pay = telebot.types.InlineKeyboardButton(
     'Как провести оплату', url='https://robotmovavi.ru/')
 button_back = telebot.types.InlineKeyboardButton(
-    text='Назад', callback_data='inst_reg')
+    text='Назад в инструменты и регламенты', callback_data='inst_reg')
 tutor_kb_cpm.add(button_create_contract, button_pay, button_back)
 
 
@@ -113,7 +113,7 @@ button_link_short_term_groups = telebot.types.InlineKeyboardButton(
     'Краткосрочные группы', url='https://robotmovavi.ru/')
 
 button_back = telebot.types.InlineKeyboardButton(
-    text='Назад', callback_data='tutor')
+    text='Назад в главное меню', callback_data='tutor')
 tutor_kb_map_courses.add(button_summer_camp, button_main_courses,
                          button_link_short_term_groups, button_back)
 
@@ -133,7 +133,7 @@ button_partners_pro_school = telebot.types.InlineKeyboardButton(
 button_partners_10th_gymnasium = telebot.types.InlineKeyboardButton(
     text='10-ая гимназия', callback_data='10gym')
 button_back = telebot.types.InlineKeyboardButton(
-    text='Назад', callback_data='tutor')
+    text='Назад в главное меню', callback_data='tutor')
 
 tutor_kb_partners.add(button_partners_growth, button_partners_pro_school,
                       button_partners_10th_gymnasium, button_back)
@@ -151,7 +151,7 @@ button_grouth_olympiad = telebot.types.InlineKeyboardButton(
 button_grouth_courses = telebot.types.InlineKeyboardButton(
     'Курсы', url='https://robotmovavi.ru/')
 button_back = telebot.types.InlineKeyboardButton(
-    text='Назад', callback_data='partners')
+    text='Назад в партнеры', callback_data='partners')
 
 tutor_kb_growth.add(button_grouth_olympiad, button_grouth_courses, button_back)
 
@@ -194,7 +194,7 @@ button_motivation_feedback = telebot.types.InlineKeyboardButton(
 button_motivation_mov_boost = telebot.types.InlineKeyboardButton(
     'Мовави Буст Инструкция/пароли', url='https://robotmovavi.ru/')
 button_back = telebot.types.InlineKeyboardButton(
-    text='Назад', callback_data='tutor')
+    text='Назад в главное меню', callback_data='tutor')
 
 tutor_kb_motivation.add(button_motivation_feedback,
                         button_motivation_mov_boost, button_back)
@@ -210,7 +210,7 @@ button_axo_useful_phonenum = telebot.types.InlineKeyboardButton(
     'Полезные телефоны', url='https://robotmovavi.ru/')
 
 button_back = telebot.types.InlineKeyboardButton(
-    text='Назад', callback_data='tutor')
+    text='Назад в главное меню', callback_data='tutor')
 
 tutor_kb_axo.add(button_axo_useful_phonenum, button_back)
 
@@ -239,7 +239,7 @@ teacher_kb_growth = types.InlineKeyboardMarkup(
 button_growth_time_table = types.InlineKeyboardButton(
     'Расписание', url='https://robotmovavi.ru/')
 button_back = telebot.types.InlineKeyboardButton(
-    text='Назад', callback_data='partners')
+    text='Назад в партнеры', callback_data='partners')
 
 teacher_kb_growth.add(button_grouth_olympiad,
                       button_growth_time_table, button_grouth_courses, button_back)
