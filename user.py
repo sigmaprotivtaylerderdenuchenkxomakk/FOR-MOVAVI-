@@ -10,7 +10,14 @@ class User():
         self.rol = rol
 
     @staticmethod
-    def get_user_by_id(id):
+    def get_user_by_id(id: int)-> str:
+        """Возращает роль по id user 
+        если его нет в базе данных то
+        говорит об этом
+
+        Args:
+            id (int): 
+        """
         engine = create_engine("sqlite:///" + db_name)
         Session = sessionmaker(bind=engine)
         session = Session()
@@ -23,7 +30,12 @@ class User():
         return user
 
     @staticmethod
-    def save_user(id, rol):
+    def save_user(id:int, rol:str)->None:
+        """Сохраняет id и роль в базу данных
+        Args:
+            id (int): 
+            rol (str):
+        """
         engine = create_engine("sqlite:///" + db_name)
         Session = sessionmaker(bind=engine)
         session = Session()
