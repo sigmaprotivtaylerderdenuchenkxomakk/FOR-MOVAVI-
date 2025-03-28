@@ -2,8 +2,8 @@ from telebot import *
 from user import *
 from kb import *
 from config import *
-
-
+import db_create 
+db_create.create_db()
 bot = TeleBot(TOKEN)
 
 # create_mov_db()

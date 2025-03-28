@@ -1,6 +1,6 @@
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import create_engine, Column, Integer, String
-
+import config
 BaseModel = declarative_base()
 
 
@@ -13,7 +13,9 @@ class Users(BaseModel):
     rol = Column(String(100))  # Число
 
 
-# Настраиваем подключение к БД (файл указывается при запуске
-engine = create_engine("sqlite:///" + 'mov.db')
-# Создание таблиц (если они еще не созданы)
-BaseModel.metadata.create_all(engine)
+def create_db()->None:
+    """
+    Создает базу данных
+    """
+    engine = create_engine("sqlite:///" + config.db_name)
+    BaseModel.metadata.create_all(engine)
